@@ -1,5 +1,5 @@
 import express from "express";
-import test from "./Test/test.js";
+import test from "./Test/test";
 
 const app = express()
 console.log("Hello TypeScript + Node.js!");
