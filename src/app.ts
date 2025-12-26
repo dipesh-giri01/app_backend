@@ -2,7 +2,7 @@ import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 import swaggerUi from "swagger-ui-express";
-import swaggerSpec from "./config/swagger-docs/swagger.config";
+import swaggerSpec, { swaggerOptions } from "./config/swagger-docs/swagger.config";
 import { IndexRouter } from "./routes";
 import { errorHandler } from "./middlewares/error.middleware";
 
@@ -31,7 +31,7 @@ app.use(
     "/api-docs",
     express.static(swaggerDistPath, { index: false }),
     swaggerUi.serve,
-    swaggerUi.setup(swaggerSpec)
+    swaggerUi.setup(swaggerSpec, swaggerOptions)
 );
 
 // API Routes

@@ -118,4 +118,13 @@ const options: swaggerJsdoc.Options = {
 
 const swaggerSpec = swaggerJsdoc(options);
 
+// Swagger UI custom options
+export const swaggerOptions = {
+    customCss: `
+        .swagger-ui .topbar { display: none }
+        .swagger-ui { background-color: #fafafa }
+    `,
+    customSiteTitle: "Chess Player API - Swagger UI"
+};
+
 export default swaggerSpec;
