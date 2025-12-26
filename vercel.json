@@ -2,14 +2,10 @@
   "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "rewrites": [
-    {
-      "source": "/api(.*)",
-      "destination": "/index.js"
-    },
-    {
-      "source": "/api-docs(.*)",
-      "destination": "/index.js"
+  "functions": {
+    "dist/index.js": {
+      "memory": 1024,
+      "maxDuration": 60
     }
-  ]
+  }
 }

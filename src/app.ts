@@ -11,6 +11,9 @@ console.log("Hello TypeScript + Node.js!");
 // Middleware
 app.use(express.json());
 
+// Serve static files from swagger-ui-express
+app.use(express.static("node_modules/swagger-ui-dist"));
+
 // CORS
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
