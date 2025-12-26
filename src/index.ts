@@ -1,10 +1,28 @@
+import dotenv from "dotenv";
 import app from "./app";
+import { dbConnect } from "./config/dbConnect/dbConnect";
+
+// Load environment variables
+dotenv.config();
 
 const PORT = process.env.PORT || 3000;
 
-// Only listen on port in development (not on Vercel)
-if (process.env.VERCEL !== '1') {
-    app.listen(PORT, () => {
-        console.log(`Server running at http://localhost:${PORT}`);
-    });
+// Start server with database connection
+async function startServer() {
+    try {
+        // Connect to MongoDB
+        await dbConnect();
+        
+        // Only listen on port in development (not on Vercel)
+        if (process.env.VERCEL !== '1') {
+            app.listen(PORT, () => {
+                console.log(`Server running at http://localhost:${PORT}`);
+            });
+        }
+    } catch (error) {
+        console.error("Failed to start server:", error);
+        process.exit(1);
+    }
 }
+
+startServer();

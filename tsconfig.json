@@ -6,6 +6,10 @@
     "moduleResolution": "node",
     "rootDir": "./src",
     "outDir": "./dist",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
