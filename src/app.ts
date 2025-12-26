@@ -1,8 +1,14 @@
 import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
 import swaggerUi from "swagger-ui-express";
 import swaggerSpec from "./config/swagger-docs/swagger.config";
 import { IndexRouter } from "./routes";
 import { errorHandler } from "./middlewares/error.middleware";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const swaggerDistPath = path.join(__dirname, "../node_modules/swagger-ui-dist");
 
 const app = express();
 
@@ -10,9 +16,6 @@ console.log("Hello TypeScript + Node.js!");
 
 // Middleware
 app.use(express.json());
-
-// Serve static files from swagger-ui-express
-app.use(express.static("node_modules/swagger-ui-dist"));
 
 // CORS
 app.use((req, res, next) => {
@@ -22,8 +25,14 @@ app.use((req, res, next) => {
     next();
 });
 
-// Swagger UI
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+// Serve Swagger UI static files directly from node_modules
+// This must come BEFORE swaggerUi.serve to ensure CSS/JS files are served with correct MIME types
+app.use(
+    "/api-docs",
+    express.static(swaggerDistPath, { index: false }),
+    swaggerUi.serve,
+    swaggerUi.setup(swaggerSpec)
+);
 
 // API Routes
 app.use("/api/v1", IndexRouter);
