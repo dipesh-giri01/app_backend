@@ -1,6 +1,6 @@
 import type { Request, Response, NextFunction } from "express";
 import type { Schema } from "joi";
-import { ValidationError } from "../errors/ValidationError.error";
+import { ValidationError } from "../errors/ValidationError.error.js";
 
 /**
  * Middleware to validate request body against a Joi schema

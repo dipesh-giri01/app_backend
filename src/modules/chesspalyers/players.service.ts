@@ -1,8 +1,8 @@
-import BaseService from "../../services/baseService";
-import { IPlayer } from "./players.model";
-import PlayerModel from "./players.model";
-import { BadRequestError } from "../../errors/BadRequestError.error";
-import { NotFoundError } from "../../errors/NotFoundError.error";
+import BaseService from "../../services/baseService.js";
+import { IPlayer } from "./players.model.js";
+import PlayerModel from "./players.model.js";
+import { BadRequestError } from "../../errors/BadRequestError.error.js";
+import { NotFoundError } from "../../errors/NotFoundError.error.js";
 
 interface PaginationParams {
     page: number;

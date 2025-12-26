@@ -1,4 +1,4 @@
-import { CustomError } from "./CustomError.error";
+import { CustomError } from "./CustomError.error.js";
 
 export class UnauthorizedError extends CustomError {
   statusCode = 401;

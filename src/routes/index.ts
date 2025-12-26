@@ -1,6 +1,6 @@
 import { Router } from "express";
-import playersRoutes from "../modules/chesspalyers/players.routes";
-import rankingsRoutes from "../modules/chesspalyers/rankings.routes";
+import playersRoutes from "../modules/chesspalyers/players.routes.js";
+import rankingsRoutes from "../modules/chesspalyers/rankings.routes.js";
 
 
 const router = Router();

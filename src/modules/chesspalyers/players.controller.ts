@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
-import PlayerModel from "./players.model";
-import PlayersService from "./players.service";
+import PlayerModel from "./players.model.js";
+import PlayersService from "./players.service.js";
 
 class PlayersController {
     private playersService: PlayersService;

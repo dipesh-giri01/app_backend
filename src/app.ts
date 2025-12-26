@@ -2,9 +2,9 @@ import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 import swaggerUi from "swagger-ui-express";
-import swaggerSpec, { swaggerOptions } from "./config/swagger-docs/swagger.config";
-import { IndexRouter } from "./routes";
-import { errorHandler } from "./middlewares/error.middleware";
+import swaggerSpec, { swaggerOptions } from "./config/swagger-docs/swagger.config.js";
+import { IndexRouter } from "./routes/index.js";
+import { errorHandler } from "./middlewares/error.middleware.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

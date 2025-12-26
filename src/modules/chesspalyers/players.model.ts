@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import type { Document, Schema as MongooseSchema, Model } from "mongoose";
-import { PlayerTitle } from "./players.enum";
+import { PlayerTitle } from "./players.enum.js";
 
 export interface IPlayer extends Document {
     id_number: string;
